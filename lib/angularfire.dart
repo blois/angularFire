@@ -10,30 +10,30 @@ import 'package:firebase/firebase.dart';
 class FirebaseModule extends Module {
   FirebaseModule() {
     type(AngularFire);
+    // NOTE: not actual code, more psuedo code, to get the right idea.
+    // add something like this, which you would expect your users to override:
+    type(FireBaseURL, new FireBaseUrl(''));
+    factory(Firebase, (injector) => new Firebase(injector.get(FireBaseUrl).url));
   }
 }
 
-/**
- * AngularFire service.
- */
-@NgInjectableService()
-class AngularFire {
-  AngularFire();
-  AngularFireInstance create(Firebase ref) {
-    return new AngularFireInstance(ref);
-  }
+class FireBaseUrl {
+  final String url;
+  FireBaseUrl(this.url);
 }
+
 
 /**
  * A particular instance of AngularFire tied to a specific URL.
  */
-class AngularFireInstance {
+ // I would rename this to just AngularFire
+class AngularFire {
   Firebase _fRef;
 
   List values;
   List<String> index;
 
-  AngularFireInstance(this._fRef) {
+  AngularFire(this._fRef) {
     this.index = new List();
     this.values = new List();
     this._initialize();
