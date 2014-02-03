@@ -4,6 +4,6 @@ author: Anant Narayanan <anant@kix.in>
 description: The AngularFire library in Dart.
 homepage: https://github.com/firebase/angularFire/tree/dart
 dependencies:
-  angular: ">=0.9.1 <0.10.0"
+  angular: any
   browser: ">=0.8.7 <0.10.0"
   firebase: ">=0.1.0 <0.2.0"
