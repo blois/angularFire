@@ -18,7 +18,7 @@ class FirebaseModule extends Module {
 
 class FirebaseUrl {
   final String url;
-  FirebasUrl(this.url);
+  FirebaseUrl(this.url);
 }
 
 /**
